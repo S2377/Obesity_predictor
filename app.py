@@ -113,7 +113,7 @@ def logout():
 app.config["MAIL_SERVER"] = 'smtp.gmail.com'
 app.config["MAIL_PORT"] = 465
 app.config["MAIL_USERNAME"] = 'shivam2377kumar@gmail.com'  # Update with your Gmail email
-app.config['MAIL_PASSWORD'] = 'uswo thvi ogxi kkbi'  # Update with your Gmail password
+app.config['MAIL_PASSWORD'] = 'Dak@blru22'  # Update with your Gmail password
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
@@ -122,7 +122,7 @@ mail = Mail(app)
 def send_otp(email, h, w, predicted_classes):
     """Send health report email to the user."""
     
-    msg = Message(subject='Your Health Report', sender=('Rajat Malviya', app.config["MAIL_USERNAME"]), recipients=[email])
+    msg = Message(subject='Your Health Report', sender=('Shivam Kumar', app.config["MAIL_USERNAME"]), recipients=[email])
     msg.body = f"""
     Dear {user_name_lst[-1]} ,
     
