@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomandation</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='user.css')}}">
+</head>
+<body>
+    <header>
+        <div class="logo"><span>O</span><span>P</span>ridictor</div>
+        <div class="nev">
+            {% if not session['user_info'] %}
+                <div class="flex-center login nav-btn" id="nav-sign"><a href="/login"><span>Sign-in</span></a></div>
+            {% else %}
+                <div class="login nav-btn"><a href="logout"><span>Logout</span></a></div>
+            {% endif %}
+            <!-- diffrent part -->
+            {% if session['user_info'] %}
+                <div class="user-img">
+                    <a href="/user" class="flex-center"><img src="{{ session['user_info']['picture'] }}" alt="User Picture"></a>
+                </div>
+            {% else %}
+            <div class="user-img">
+                <a href="/user" class="flex-center"><img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="User Picture"></a>
+            </div>
+            {% endif %}
+
+            <!-- <button type="submit" class="nav-btn" id="nav-sign">Sign-in</button> -->
+            <!-- <button class="nav-btn" id="nav-desh"><a href="{{ url_for('portal') }}">Dashboard</a></button> -->
+        </div>
+    </header>
+    <div class="main">
+        <div class="upper-1">
+            <h1>{{predicted_classes}}</h1>
+            <div class="mail">
+                <form action="/send_otp" method="post">
+                    <button type="submit" value="send_email" class="nav-btn" name="user_email" style="color: black;">Send Email</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="upper">    
+            <div class="box-1">
+                <div class="box-2">
+                    {{ plot_div | safe }}
+                </div>    
+            </div>
+            <div class="box-2">
+                {{ helth | safe }}
+            </div>
+        </div>
+
+        <div class="suggesion">
+            <img src="{{ url_for('static', filename='food_suggesion.png') }}" alt="food_suggesion">
+        </div>
+        <div class="cards">
+            <h4>Our Team</h4>
+            <h1>Our professionals in weight loss</h1>
+            <div class="card-box">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="{{ url_for('static', filename='mama_3.jpg') }}" alt="">
+                    </div>
+                    <h2>Summer T. Ryans</h2>
+                    <h3>Nutritionist</h3>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="{{ url_for('static', filename='meme_2.jpg') }}" alt="">
+                    </div>
+                    <h2>Erma J. Davis</h2>
+                    <h3>Nutritionist</h3>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="{{ url_for('static', filename='meme_1.jpg') }}" alt="">
+                    </div>
+                    <h2>Sheila B. Eickhoff</h2>
+                    <h3>Nutritionist</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        Copyright ©️2024 OPridictor All right reserved 
+    </footer>
+</body>
+</html>

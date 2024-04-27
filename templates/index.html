@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Londrina+Outline&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.6));
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+            margin-top: 10vh;
+            height: 100vh;
+            margin: 0;
+            /*display: flex;
+            justify-content: center;
+            align-items: center;*/
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <header>
+            <div class="logo"><span>O</span><span>P</span>ridictor</div>
+            <div class="nev">
+                {% if not session['user_info'] %}
+                    <div class="flex-center login nav-btn" id="nav-sign"><a href="/login"><span>Sign-in</span></a></div>
+                {% else %}
+                    <div class="login nav-btn"><a href="logout"><span>Logout</span></a></div>
+                {% endif %}
+                <!-- diffrent part -->
+                {% if session['user_info'] %}
+                    <div class="user-img">
+                        <a href="/user" class="flex-center"><img src="{{ session['user_info']['picture'] }}" alt="User Picture"></a>
+                    </div>
+                {% else %}
+                <div class="user-img">
+                    <a href="/user" class="flex-center"><img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="User Picture"></a>
+                </div>
+                {% endif %}
+
+                <!-- <button type="submit" class="nav-btn" id="nav-sign">Sign-in</button> -->
+                <!-- <button class="nav-btn" id="nav-desh"><a href="{{ url_for('portal') }}">Dashboard</a></button> -->
+            </div>
+        </header>
+        
+       <div class="body-content">
+            <div class="box-1">
+                <div class="tagline">
+                    <div class="massege">
+                        <div class="wrapper">
+                            <div class="static-txt londrina-outline-regular" id="static-txt">Embark on a Journey Towards,</div>
+                            <ul class="dynamic-txts">
+                                <li><span style="font-family: cursive;">Better Health and a Brighter Future with Us Today!</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- description-->
+                
+            </div>
+            <div class="box-2">
+                <button  class="box-2-btn" id="box-2-btn2 .icon-right .icon-right.after">
+                    {% if not session['user_info'] %}
+                        <a href="/login">Get-Started</a>
+                    {% else %}
+                        <a href="{{url_for('portal')}}">Get-Started</a>
+                    {% endif %}
+                </button>
+                </div>
+            </div>
+        </div> 
+    </div>
+    
+    <script>
+        // Array of image URLs
+        const images = [
+            '../static/background.jpg',
+            '../static/fit-woman.jpg',
+            '../static/istockphoto-1124272274-612x612.jpg',
+            '../static/person-with-eating-disorder-trying-eat-fast-food_23-2149243006.avif'
+        ];
+
+        let index = 0;
+
+        function changeBackground() {
+            document.body.style.backgroundImage = `url(${images[index]})`;
+            index = (index + 1) % images.length;
+        }
+
+        // Initial call to change background
+        changeBackground();
+
+        // Set interval to change background every 5 seconds
+        setInterval(changeBackground, 5000);
+    </script>
+</body>
+</html>
+

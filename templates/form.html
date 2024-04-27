@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='form.css')}}">
+</head>
+<body>
+    <div>
+        <header>
+            <div class="logo"><span>O</span><span>P</span>ridictor</div>
+            <div class="nev">
+                {% if not session['user_info'] %}
+                    <div class="flex-center login nav-btn" id="nav-sign"><a href="/login"><span>Sign-in</span></a></div>
+                {% else %}
+                    <div class="login nav-btn"><a href="logout"><span>Logout</span></a></div>
+                {% endif %}
+                <!-- diffrent part -->
+                {% if session['user_info'] %}
+                    <div class="user-img">
+                        <a href="/user" class="flex-center"><img src="{{ session['user_info']['picture'] }}" alt="User Picture"></a>
+                    </div>
+                {% else %}
+                <div class="user-img">
+                    <a href="/user" class="flex-center"><img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="User Picture"></a>
+                </div>
+                {% endif %}
+
+                <!-- <button type="submit" class="nav-btn" id="nav-sign">Sign-in</button> -->
+                <!-- <button class="nav-btn" id="nav-desh"><a href="{{ url_for('portal') }}">Dashboard</a></button> -->
+            </div>
+        </header>
+        
+        <form class="main glass-template" method="POST">
+            <div class="data">
+                Your data collection form
+            </div>
+            <div class="row-1">
+                <div class="col-half r1-c1">
+                    <h4>Gender</h4>
+                    <div class="input-group">
+                        <input id="gender-male" type="radio" name="gender" value="1">
+                        <label for="gender-male">Male👨</label>
+                        <input id="gender-female" type="radio" name="gender" value="0">
+                        <label for="gender-female">Female👩</label>
+                    </div>
+                </div>
+
+                <div class="r1-c2">
+                    <h4>Age:👴👵</h4>
+                    <input type="date" name="age" id="age" required>
+                </div>
+            </div>
+
+            <div class="row-2 all">
+                <div class="height">
+                    <h4>Height:😉</h4>
+                    <input type="floatformat" id="height" name="height" placeholder="In cm" required>
+                </div>
+                <div class="weight">
+                    <h4>Weight:😬</h4>
+                    <input type="floatformat" id="weight" name="weight" placeholder="In Kg" required>
+                </div>
+            </div>
+
+            <div class="row-3 all">
+                <div class="row-3-1">
+                    <h4>Has a family member suffered or suffers from overweight?</h4>
+                    <div class="input-group-row-3">
+                        <input id="family_history-0" type="radio" name="family_history" value="0" checked>
+                        <label for="family_history-0"><span>No</span></label>
+                        <input id="family_history-1" type="radio" name="family_history" value="1">
+                        <label for="family_history-1"><span>Yes</span></label>
+                    </div>
+                </div>
+
+                <div class="row-3-1">
+                    <h4>Do you monitor the calories you eat daily?</h4>
+                    <div class="input-group-row-3">
+                        <input id="scc-0" type="radio" name="scc" value="0" checked>
+                        <label for="scc-0"><span>No</span></label>
+                        <input id="scc-1" type="radio" name="scc" value="1">
+                        <label for="scc-1"><span>Yes</span></label>
+                    </div>
+                </div>
+
+                <div class="row-3-1">
+                    <h4>Do you smoke🚬?</h4>
+                    <div class="input-group input-group-row-3">
+                        <input id="smoke-0" type="radio" name="smoke" value="0" checked>
+                        <label for="smoke-0"><span>No</span></label>
+                        <input id="smoke-1" type="radio" name="smoke" value="1">
+                        <label for="smoke-1"><span>Yes</span></label>
+                    </div>
+                </div>
+
+                <div class="row-3-1">
+                    <h4>Do you eat high caloric food frequently?</h4>
+                    <div class="input-group input-group-row-3">
+                        <input id="favc-0" type="radio" name="favc" value="0" checked>
+                        <label for="favc-0"><span>No</span></label>
+                        <input id="favc-1" type="radio" name="favc" value="1">
+                        <label for="favc-1"><span>Yes</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-4 all">
+                <div class="all">
+                    <label for="fcvc">How many times you usually eat vegetables🫑 in a day?</label>
+                    <input type="number" id="fcvc" name="fcvc" required>
+                </div>
+                <div class="all">
+                    <label for="ncp">How many main meals🍽️ do you have daily?</label>
+                    <input type="number" id="ncp" name="ncp" required>
+                </div>
+                <div class="all">
+                    <label for="ch2o">How much water🥛 do you drink daily?</label>
+                    <input type="number" id="ch2o" name="ch2o" placeholder="Liters" required>
+                </div>
+
+                <div class="all">
+                    <label for="faf">How often do you have physical activity🏋️?</label>
+                    <input type="number" id="faf" name="faf" placeholder="Hours 1,2.." required>
+                </div>
+                
+                <div class="all">
+                    <label for="tue">How much time do you use technological devices such as cell phone📱, videogames🎮, television📺, computer💻 and others? (hours in a day)</label>
+                    <input type="number" id="tue" name="tue" placeholder="Hours" required>
+                </div>
+            </div>
+
+            <div class="row-5 all">
+                <div class="field">
+                    <label for="calc">How often do you drink alcohol?</label>
+                    <ul class="options">
+                        <li class="option">
+                            <input class="option-input" id="option-0-0" type="radio" name="calc" value="3">
+                            <label class="option-label" for="option-0-0">No</label>
+                        </li>
+                        <li class="option">
+                            <input class="option-input" id="option-0-1" type="radio" name="calc" value="2">
+                            <label class="option-label" for="option-0-1">Sometimes</label>
+                        </li>
+                        <li class="option">
+                            <input class="option-input" id="option-0-2" type="radio" name="calc" value="1">
+                            <label class="option-label" for="option-0-2">Frequently</label>
+                        </li>
+                        <li class="option">
+                            <input class="option-input" id="option-0-3" type="radio" name="calc" value="0">
+                            <label class="option-label" for="option-0-3">Always</label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="field">
+                    <label for="caec">Do you eat any food between meals?</label>
+                    <ul class="options">
+                        <li class="option">
+                            <input class="option-input" id="option-1-0" type="radio" name="caec" value="3">
+                            <label class="option-label" for="option-1-0">No</label>
+                        </li>
+                        <li class="option">
+                            <input class="option-input" id="option-1-1" type="radio" name="caec" value="2">
+                            <label class="option-label" for="option-1-1">Sometimes</label>
+                        </li>
+                        <li class="option">
+                            <input class="option-input" id="option-1-2" type="radio" name="caec" value="1">
+                            <label class="option-label" for="option-1-2">Frequently</label>
+                        </li>
+                        <li class="option">
+                            <input class="option-input" id="option-1-3" type="radio" name="caec" value="0">
+                            <label class="option-label" for="option-1-3">Always</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="field">
+                    <label for="mtrans">Which transportation do you usually use?</label>
+                    <ul class="options">
+                        <li class="option">
+                            <input class="option-input" id="option-2-4" type="radio" name="mtrans" value="4">
+                            <label class="option-label" for="option-2-4">Walking</label>
+                        </li>
+                        <li class="option">
+                            <input class="option-input" id="option-2-1" type="radio" name="mtrans" value="1">
+                            <label class="option-label" for="option-2-1">Bike</label>
+                        </li>
+                        <li class="option">
+                            <input class="option-input" id="option-2-2" type="radio" name="mtrans" value="2">
+                            <label class="option-label" for="option-2-2">Motorbike</label>
+                        </li>
+                        <li class="option">
+                            <input class="option-input" id="option-2-3" type="radio" name="mtrans" value="3">
+                            <label class="option-label" for="option-2-3">Public Transportation</label>
+                        </li>
+                        <li class="option">
+                            <input class="option-input" id="option-2-0" type="radio" name="mtrans" value="0">
+                            <label class="option-label" for="option-2-0">Automobile</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button type="submit" class="sbm-btn" value="user_data" name="user_email">Predict</button>
+        </form>
+    </div>
+    
+</body>
+</html>
