@@ -112,7 +112,7 @@ def logout():
 # Mail configuration
 app.config["MAIL_SERVER"] = 'smtp.gmail.com'
 app.config["MAIL_PORT"] = 465
-app.config["MAIL_USERNAME"] = 'malviyaji6281@gmail.com'  # Update with your Gmail email
+app.config["MAIL_USERNAME"] = 'shivam2377kumar@gmail.com'  # Update with your Gmail email
 app.config['MAIL_PASSWORD'] = 'uswo thvi ogxi kkbi'  # Update with your Gmail password
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
@@ -241,4 +241,5 @@ def portal():
         return render_template('user.html', data=data, plot_div=plot_div, predicted_classes=predicted_classes, helth=helth)
     return render_template('form.html')
 
-app.run(debug=True,port = '0.0.0.0')
+if __name__ == '__main__':
+    app.run(debug=True,port = '0.0.0.0')
