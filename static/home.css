@@ -1,0 +1,290 @@
+@import 'https://fonts.googleapis.com/css?family=Space+Mono';
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main{
+    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+    height: 100vh;
+
+}
+a{
+  text-decoration: none;
+  font-family: inherit;
+  color:black;
+}
+/* header */
+header{
+    height: 8vh;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    z-index: 1000; 
+    background-color: #202020;
+    margin-bottom: 8vh;
+}
+
+.nev{
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+.user-img{
+  margin-left:10px;
+  border: 2px solid #ff9813;
+  border-radius: 90px;
+  height: 7vh;
+  overflow: hidden;
+}
+.user-img img{
+  width: 100%;
+  height: 100%;
+}
+
+.nav-btn{
+    height: 90%;
+    width: max-content;
+    font-size: 1.1rem;
+    padding: 10px 15px;    
+    background-color: transparent;
+    border: 1px solid #ff9813;
+    color: #fff;
+    margin-left:10px;
+    border-radius: 4px;
+}
+.nav-btn:hover{
+  background-color: #ff9813;
+}
+.nav-btn a span{
+  height: 90%;
+    width: max-content;
+    font-size: 1.1rem;
+    padding: 10px 15px;    
+    background-color: transparent;
+    color: #fff;
+    margin-left:10px;
+}
+
+/* #nav-desh{
+    background-color: #c2c2c2;
+    color: black;
+} */
+.logo{
+  font-family: cursive;
+  font-size: 1.3rem;
+  color: #fff;
+  font-weight: bold;
+  /* color:greenyellow; */
+
+}
+.logo span{
+  font-size: 2rem;
+  color: orange;
+}
+/* text stuff */
+.wrapper{
+    display: flex;
+    flex-direction: column;
+  }
+.static-txt{
+    color: #fff;
+    font-size: 100px;
+    font-weight: 400;
+  }
+
+  .wrapper .dynamic-txts{
+    margin-left: 100px;
+    height: 90px;
+    line-height: 90px;
+    overflow: hidden;
+  }
+  .dynamic-txts li{
+    list-style: none;
+    /* color: #40ffd5; */
+    color: #ff9813;
+    font-size: 45px;
+    font-weight: 500;
+    position: relative;
+    top: 0;
+  }
+  .dynamic-txts li span{
+    position: relative;
+    margin: 5px 0;
+    line-height: 90px;
+  }
+  .dynamic-txts li span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      /* background: #343F4F; */;
+      background:rgba(0,0,0,0.8);
+      border-left: 2px solid #FC6D6D;
+      /* Change the animation duration to control typing and deleting speed */
+      animation: typing 4s steps(25) forwards, deleting 4s steps(25) 3s infinite; /* Change 3s to desired duration */
+  }
+  
+  @keyframes typing {
+      0% {
+          width: 0;
+          left: 100%; /* Start from the left */
+      }
+      40%, 60% {
+          width: 100%;
+          left: 0; /* Move to the right */
+      }
+      100% {
+          width: 100%;
+          left: 0; /* Stay at the right */
+      }
+  }
+
+  @keyframes deleting {
+      0% {
+          width: 100%;
+          left: 0; /* Start from the right */
+      }
+      40%, 60% {
+          width: 0;
+          left: 100%; /* Move to the left */
+      }
+      100% {
+          width: 0;
+          left: 100%; /* Stay at the left */
+      }
+  }
+
+/* message */
+.massege{
+    width: max-content;
+    /* border: 2px solid white; */
+    margin: auto;
+
+}
+
+/* body-content */
+.body-content{
+    text-align: center;
+    margin: 20vh;
+}
+ 
+.box-2{
+    margin-top: 8vh;
+}
+.box-2 button a{
+  color: #fff;
+}
+
+  .box-2-btn{
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 1px;
+    background: none;
+    color: white;
+    position: relative;
+    outline: none;
+    border: none;
+    height: 50px;
+    width: 190px;
+    font-size: 14px;
+    z-index: 2;
+    transition: .01s .23s ease-out all;
+    overflow: hidden;
+    border: 1px solid #fff;
+    margin: 10px;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 55%;
+      background: #202020;
+      z-index: -1;
+      transition: .3s ease-in all;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      left: -5%;
+      top: 5%;
+      height: 90%;
+      width: 5%;
+      background: white;
+      z-index: -1;
+      transition: .4s .02s ease-in all;
+    }
+    &:hover {
+      cursor: pointer;
+      color: #fff;
+      &:before {
+        left: 100%;
+        width: 25%;
+      }
+      &:after {
+        left: 100%;
+        width: 70%;
+      }
+      .icon-right.after:after {
+        left: -80px;
+        color: white;
+        transition: .2s .2s ease all;
+      }
+      .icon-right.after:before {
+        left: -104px;
+        top: 14px;
+        opacity: 0.2;
+        color: white;
+      }
+    }
+  }
+  
+  .icon-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    &:after {
+      font-family: "FontAwesome";
+      content: '\2192';
+      font-size: 24px;
+      display: inline-block;
+      position: relative;
+      top: 26px;
+      transform: translate3D(0, -50%, 0);
+    }
+    &.after:after {
+      left: -250px;
+      color: black;
+      transition: .15s .25s ease left, .5s .05s ease color;
+    }
+    &.after:before {
+      content: 'Explore';
+      position: absolute;
+      left: -230px;
+      top: 14px;
+      opacity: 0;
+      transition: .2s ease-in all;
+    }
+  }
+  
+
+/* fontes */
+.londrina-outline-regular {
+    font-family: "Londrina Outline", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 4px;
+}
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+ 
