@@ -64,7 +64,7 @@ google = oauth.register(
     refresh_token_url=None,
     refresh_token_params=None,
     # redirect_uri='http://127.0.0.1:5000/authorize',
-    redirect_uri = 'https://obesity-predictor.onrender.com'
+    redirect_uri = 'https://obesity-predictor.onrender.com',
     client_kwargs={'scope': 'openid email profile'},
     jwks_uri='https://www.googleapis.com/oauth2/v3/certs',
 )
