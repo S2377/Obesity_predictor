@@ -51,7 +51,7 @@ oauth = OAuth(app)
 client_id = '736957041096-vu98mpk1omqkmd42ioqh6ko8bp0sl44k.apps.googleusercontent.com'
 client_secret = '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'
 # redirect_uri = 'http://localhost:5000/loginnew'
-redirect_uri = 'https://obesity-predictor.onrender.com'
+redirect_uri = 'https://obesity-predictor.onrender.com/loginnew'
 
 google = oauth.register(
     name='google',
@@ -64,7 +64,7 @@ google = oauth.register(
     refresh_token_url=None,
     refresh_token_params=None,
     # redirect_uri='http://127.0.0.1:5000/authorize',
-    redirect_uri = 'https://obesity-predictor.onrender.com',
+    redirect_uri = 'https://obesity-predictor.onrender.com/authorize',
     client_kwargs={'scope': 'openid email profile'},
     jwks_uri='https://www.googleapis.com/oauth2/v3/certs',
 )
