@@ -50,7 +50,8 @@ app.config['PERMANENT_SESSION_LIFETIME'] = 3600*24*7
 oauth = OAuth(app)
 client_id = '736957041096-vu98mpk1omqkmd42ioqh6ko8bp0sl44k.apps.googleusercontent.com'
 client_secret = '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'
-redirect_uri = 'http://localhost:5000/loginnew'
+# redirect_uri = 'http://localhost:5000/loginnew'
+redirect_uri = 'https://obesity-predictor.onrender.com'
 
 google = oauth.register(
     name='google',
@@ -62,7 +63,8 @@ google = oauth.register(
     access_token_params=None,
     refresh_token_url=None,
     refresh_token_params=None,
-    redirect_uri='http://127.0.0.1:5000/authorize',
+    # redirect_uri='http://127.0.0.1:5000/authorize',
+    redirect_uri = 'https://obesity-predictor.onrender.com'
     client_kwargs={'scope': 'openid email profile'},
     jwks_uri='https://www.googleapis.com/oauth2/v3/certs',
 )
