@@ -1,0 +1,40 @@
+/* home.css */
+
+/* Add general styles for responsiveness */
+@media screen and (max-width: 768px) {
+    .main {
+        padding: 0 20px; /* Adjust padding for smaller screens */
+    }
+
+    .box-1 {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .box-2 {
+        margin-top: 20px; /* Adjust margin for smaller screens */
+    }
+
+    .body-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box-2-btn {
+        width: 100%; /* Make the button full width on smaller screens */
+    }
+
+    .logo {
+        font-size: 1.5rem; /* Decrease logo size for smaller screens */
+    }
+}
+
+/* Add styles for larger screens if needed */
+@media screen and (min-width: 992px) {
+    /* Add specific styles for larger screens */
+}
+
+/* Add styles for extra-large screens if needed */
+@media screen and (min-width: 1200px) {
+    /* Add specific styles for extra-large screens */
+}
