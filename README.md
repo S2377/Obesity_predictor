@@ -1,4 +1,5 @@
 # Obesity Level Predictor
+Link - https://obesity-predictor.onrender.com
 
 ## Overview
 This project is aimed at predicting obesity levels based on various factors such as demographic data, dietary habits, physical activity, etc. The predictions are made using machine learning models trained on historical data.
@@ -25,4 +26,4 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 6. Create a new Pull Request.
 
 ## Contact
-For any inquiries or suggestions, please contact [jnvsuraj7388@gmail.com]
+For any inquiries or suggestions, please contact [shivam2377kumar@gmail.com]
